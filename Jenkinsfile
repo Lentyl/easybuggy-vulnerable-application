@@ -4,12 +4,12 @@ pipeline {
         maven 'maven_3_5_2'  
     }
    stages{
-    stage('Run SCA Analysis using Snyk') {
-        steps {		
-		withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-		sh 'mvn snyk:test -fn'
-	}
-     }
-    }	
+        stage('Run SCA Analysis using Snyk') {
+            steps {		
+			    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+			    sh 'mvn snyk:test -fn'
+				}
+			}
+        }	
   }
 }
